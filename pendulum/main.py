@@ -26,25 +26,21 @@ class Main():
 
     def draw(self):
         #the pendulum equation for arm1 angle acceleration
-        self.num1 =-self.g * (2 * self.m1 + self.m2) * math.sin(self.a1)
-        self.num2 =-self.m2 * self.g * math.sin(self.a1 -2 * self.a2)
-        self.num3 =-2* math.sin(self.a1 - self.a2)*self.m2
-        self.num4 =self.a2_v**2*self.r2 + self.a1_v**2*self.r1*math.cos(self.a1-self.a2)
-        self.denominator = self.r1 * (2*self.m1 + self.m2-self.m2 * math.cos(2* self.a1-2*self.a2))
+        num1 =-self.g * (2 * self.m1 + self.m2) * math.sin(self.a1)
+        num2 =-self.m2 * self.g * math.sin(self.a1 -2 * self.a2)
+        num3 =-2* math.sin(self.a1 - self.a2)*self.m2
+        num4 =self.a2_v**2*self.r2 + self.a1_v**2*self.r1*math.cos(self.a1-self.a2)
+        denominator = self.r1 * (2*self.m1 + self.m2-self.m2 * math.cos(2* self.a1-2*self.a2))
 
-        self.a1_a = (self.num1 + self.num2 + self.num3 * self.num4) / self.denominator
+        self.a1_a = (num1 + num2 + num3 * num4) / denominator
         #the pendulum equation for arm2 angle acceleration
-        self.num1 = 2* math.sin(self.a1-self.a2)
-        self.num2 = (self.a1_v**2*self.r1*(self.m1+self.m2))
-        self.num3 = self.g * (self.m1 + self.m2) * math.cos(self.a1)
-        self.num4 = self.a2_v**2 * self.r2 * self.m2 * math.cos(self.a1-self.a2)
-        self.denominator = self.r2 * (2*self.m1 + self.m2-self.m2 * math.cos(2* self.a1-2*self.a2))
+        num1 = 2* math.sin(self.a1-self.a2)
+        num2 = (self.a1_v**2*self.r1*(self.m1+self.m2))
+        num3 = self.g * (self.m1 + self.m2) * math.cos(self.a1)
+        num4 = self.a2_v**2 * self.r2 * self.m2 * math.cos(self.a1-self.a2)
+        denominator = self.r2 * (2*self.m1 + self.m2-self.m2 * math.cos(2* self.a1-2*self.a2))
 
-        self.a2_a = (self.num1*(self.num2+self.num3+self.num4)) / self.denominator
-
-
-
-
+        self.a2_a = (num1*(num2+num3+num4)) / denominator
 
         self.x1 = self.r1 * math.sin(self.a1) + 600 # translating so x = 300 y = 50 
         self.y1 = self.r1 * math.cos(self.a1) + 100
