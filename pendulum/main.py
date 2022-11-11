@@ -1,6 +1,6 @@
 import pygame,math
 
-#translated from @TheCodingTrain. Processing -> Python.
+#translated from @TheCodingTrain. Java -> Python.
 
 pygame.init()
 
