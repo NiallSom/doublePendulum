@@ -2,6 +2,23 @@ import pygame
 import math
 import random
 
+values = []
+
+amount = int(input("How many double pendulums would you like: "))
+armVisible = input("Would you like to see the arms(y/n): ")
+armVal = False
+
+
+#plan on adding error handing in the future
+if armVisible.lower() == "y":
+    armVal = True
+else:
+    pass
+
+for i in range(amount):
+    a1 = int(input("angle for arm1:"))
+    a2 = int(input("angle for arm2:"))
+    values.append([Main(a1,a2,armVal)])
 
 pygame.init()
 
@@ -71,23 +88,6 @@ class Main():
 #testing value:   math.pi / 4 angle for arm 1
 #testing value:   math.pi / 8 angle for arm 2
 
-values = []
-
-amount = int(input("How many double pendulums would you like: "))
-armVisible = input("Would you like to see the arms(y/n): ")
-armVal = False
-
-
-#plan on adding error handing in the future
-if armVisible.lower() == "y":
-    armVal = True
-else:
-    pass
-
-for i in range(amount):
-    a1 = int(input("angle for arm1:"))
-    a2 = int(input("angle for arm2:"))
-    values.append([Main(a1,a2,armVal)])
 
 
 while 1:
